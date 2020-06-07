@@ -20,39 +20,45 @@ int main() {
 	int b;
 	cin >>b;
 	
-	cout<<" Ingrese cuadricula "<<endl;
-	int cuadricula;
-	cin >>cuadricula;
+	//cout<<" Ingrese cuadricula "<<endl;
+	//int cuadricula;
+	//cin >>cuadricula;
 	
-	double intervalo_x = (a/cuadricula);
-	double intervalo_y = (b/cuadricula);
+	//double intervalo_x = (a/cuadricula);
+	//double intervalo_y = (b/cuadricula);
 	
 	cout<<"Intervalo X de 0 a "<< a <<endl;
 	cout<<"Intervalo Y de 0 a "<< b <<endl;
 	
 	
 	
-	cout<<" La cuadricula en x sera "<< intervalo_x <<endl;
-	cout<<" La cuadricula en y sera "<< intervalo_y <<endl;
+	//cout<<" La cuadricula en x sera "<< intervalo_x <<endl;
+	//cout<<" La cuadricula en y sera "<< intervalo_y <<endl;
 		
 	
-	int Voltaje;
-	for (int i = 1;i <= (iteraciones); i+=1){
-		//computando valores en Y y X
-		//Voltaje = sinh(n*Pi*)
-		for (int j = -a; j <= a; j +=intervalo_x){
+	double Voltaje;
+	double final = 0;
+	int i = 1;
+	
+	// OJO si queres que evalue de 0 al parametro, hay que cambiar los ciclos for de J y K
+	for (float j = 0; j <= a; j +=0.1){ //j +=intervalo_x
 			//cout << "Valor en X ="<<j<<endl;
-			for (int k = -b ; k <= b; k+=intervalo_y){
+			for (float k = 0 ; k <= b; k+=0.1){ //k+=intervalo_y
 				// Yo ya tengo las parejas y la impresion de datos.
 				// X -> j y Y -> k
-				Voltaje = (k*k)+(j*j);
-				cout << Voltaje << ",";
+				
 				//cout<< j << "," << k << endl;
+				//for (int i = 1;i <= (iteraciones); i+=2){
+				Voltaje = ( (    (exp(  (-i*Pi*j) /b ))*( sin(  (i*Pi*k)/b  )  )) /   i) ;
+				//final = final + Voltaje;
+				//}
+				cout << Voltaje << ",";
+				
 			}
 			cout<< endl;
 		}
-		
-	}
+	//final = final + Voltaje;
+	
 	
 	
 	
