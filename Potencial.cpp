@@ -12,11 +12,11 @@ int main() {
 	cin >> iteraciones;
 	cout<<"Usted escogio "<<iteraciones<<" iteraciones"<<endl;
 	
-	cout<<" Ingrese a "<<endl;
+	cout<<" Ingrese  x a "<<endl;
 	int a;
 	cin >>a;
 	
-	cout<<" Ingrese b"<<endl;
+	cout<<" Ingrese y b"<<endl;
 	int b;
 	cin >>b;
 	
@@ -41,18 +41,18 @@ int main() {
 	int i = 1;
 	
 	// OJO si queres que evalue de 0 al parametro, hay que cambiar los ciclos for de J y K
-	for (float j = 0; j <= a; j +=0.1){ //j +=intervalo_x
+	for (float j = 0; j <= (a+0.1); j +=0.1){ //j +=intervalo_x
 			//cout << "Valor en X ="<<j<<endl;
-			for (float k = 0 ; k <= b; k+=0.1){ //k+=intervalo_y
+			for (float k = 0 ; k <= (b+0.1); k+=0.1){ //k+=intervalo_y
 				// Yo ya tengo las parejas y la impresion de datos.
 				// X -> j y Y -> k
-				
+				final = 0;
 				//cout<< j << "," << k << endl;
-				//for (int i = 1;i <= (iteraciones); i+=2){
+				for (int i = 1;i <= (iteraciones*2); i+=2){
 				Voltaje = ( (    (exp(  (-i*Pi*j) /b ))*( sin(  (i*Pi*k)/b  )  )) /   i) ;
-				//final = final + Voltaje;
-				//}
-				cout << Voltaje << ",";
+				final = final + Voltaje;
+				}
+				cout << final << ",";
 				
 			}
 			cout<< endl;
