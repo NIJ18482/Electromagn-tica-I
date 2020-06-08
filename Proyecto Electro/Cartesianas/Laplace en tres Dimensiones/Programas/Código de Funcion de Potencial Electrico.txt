@@ -1,0 +1,99 @@
+#include <iostream>
+#include <cmath>
+#define Pi   3.14159265358979323846
+using namespace std;
+
+int main() {
+	//Recordando como programar en C++
+	//cout<<""<<endl;   <-- Plantilla
+	cout<<"Bienvenido, este es un programa para computar valores de voltaje de Funcion #3"<<endl;
+	
+	cout<<" Ingrese el numero de iteraciones que desea en n "<<endl;
+	int iteraciones_n;
+	cin >> iteraciones_n;
+	cout<<"Usted escogio "<<iteraciones_n<<" iteraciones en n"<<endl;
+	
+	cout<<" Ingrese el numero de iteraciones que desea en m "<<endl;
+	int iteraciones_m;
+	cin >> iteraciones_m;
+	cout<<"Usted escogio "<<iteraciones_m<<" iteraciones en m"<<endl;
+	
+	
+	cout<<" Ingrese x a "<<endl;
+	int a;
+	cin >>a;
+	
+	cout<<" Ingrese y b"<<endl;
+	int b;
+	cin >>b;
+	
+	cout<<" Ingrese z c"<<endl;
+	int c;
+	cin >>c;
+	
+	
+	//cout<<" Ingrese cuadricula "<<endl;
+	//int cuadricula;
+	//cin >>cuadricula;
+	
+	//double intervalo_x = (a/cuadricula);
+	//double intervalo_y = (b/cuadricula);
+	cout<<"--------------------"<<endl;
+	cout<<"Intervalo X de 0 hasta "<< a <<endl;
+	cout<<"Intervalo Y de 0 hasta "<< b <<endl;
+	cout<<"Intervalo Z de 0 hasta "<< c <<endl;
+	
+	
+	
+	//cout<<" La cuadricula en x sera "<< intervalo_x <<endl;
+	//cout<<" La cuadricula en y sera "<< intervalo_y <<endl;
+		
+	
+	double Voltaje;
+	double final_1 = 0;
+	double final_2 = 0;
+	
+	int i = 1;
+	int parejas = 0;
+	double funcion = 0;
+	
+	// OJO si queres que evalue de 0 al parametro, hay que cambiar los ciclos for de J y K
+	
+	for (float h = 0; h<=c ; h+=0.2){
+		cout<<"Computando valores para plano Z = " << h <<endl;	
+		for (float j = 0; j <= (a+0.1); j +=0.1){ //j +=intervalo_x
+			//cout << "Valor en X ="<<j<<endl;
+			for (float k = 0 ; k <= (b+0.1); k+=0.1){ //k+=intervalo_y
+				// Yo ya tengo las parejas y la impresion de datos.
+				// X -> j  Y -> k  Z -> h
+				//parejas++;
+					//cout<< j <<" , "<< k << " , "<< h <<endl;
+					
+			final_2 = 0;
+			for (float n = 1 ; n <= iteraciones_n; n++){
+				final_1 = 0;
+				for (float m = 1 ; m <= iteraciones_m; m++){
+					funcion = ( 4*b*b*a*(((2-(Pi*Pi*n*n))*(cos(Pi*n))-2)/(Pi*Pi*n*n))*((-Pi*m*cos(Pi*m)) / (Pi*Pi*m*m)))*(sin((m*Pi*j)/a))*(sin((n*Pi*k)/b))* (exp(-h*sqrt(((Pi*Pi*m*m)/(a*a))+((Pi*Pi*n*n)/(b*b)))));
+					final_1 = final_1 + funcion;
+				}
+				final_2 = final_1 + final_2;
+			}
+			cout << final_2 << ",";
+			}
+		cout<< endl;	
+		}
+			//
+	}
+
+	
+	
+	//cout<<"El numero total de parejas fue de: "<< parejas << endl;
+	
+	//int numero = cos(Pi);
+	//int numero_2 = sinh(0);
+	//cout<<numero<<endl;
+	//cout<<numero_2<<endl;
+
+
+	return 0;
+}
